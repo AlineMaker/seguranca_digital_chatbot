@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=" description" content= "Aprenda a se proteger de golpes e riscos digitais">
+    <title>Segurança Digital nas Comunidades</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <header class="topo">
+        <a href="#inicio" class = "marca">
+            <span class="claro">Claro <span  class="pronto">.</span></span>
+            <span class="Separador"> </span>
+            <span class="Soulcod">Soulcode </span>
+        </a>
+
+        <nav class="menu">
+            <a href="inicio">Início</a>
+            <a href="dicas">Dicas de Segurança</a>
+            <a href="Sobre">Sobre o Projeto</a>
+
+        </nav>
+
+        <a href="#chat" class="botao botao-pequeno">
+            <span aria-hidden="true">🛡</span>
+            Segurança Digital
+        </a>
+    </header>
+         <main>
+        <section class="hero" id="inicio">
+            <div class="hero-conteudo">
+                <span class="etiqueta">
+                    🛡 ASSISTENTE EDUCATIVO
+                </span>
+
+                <h1>
+                    Segurança Digital
+                    <span>nas Comunidades</span>
+                </h1>
+
+                <p class="hero-descricao">
+                    Mais conhecimento, menos golpes.
+                    Aprenda a se proteger de fraudes e navegar
+                    com mais segurança na internet.
+                </p>
+
+                <div class="beneficios">
+                    <div>🛡️ <span>Previna-se contra golpes</span></div>
+                    <div>🔒 <span>Proteja seus dados</span></div>
+                    <div>💬 <span>Tire suas dúvidas</span></div>
+                </div>
+
+                <a href="#chat" class="botao botao-principal">
+                    Converse com o assistente <span>→</span>
+                </a>
+            </div>
+
+            <div class="hero-visual">
+                <div class="escudo">🛡️</div>
+                <div class="orbita orbita-1"></div>
+                <div class="orbita orbita-2"></div>
+
+                <div class="mensagem-visual">
+                    <span class="status"></span>
+                    Olá! Como posso ajudar você
+                    a navegar com mais segurança?
+                </div>
+
+                <p class="texto-visual">
+                    Tecnologia a serviço das pessoas.
+                </p>
+            </div>
+        </section>
+
+        <section class="conteudo" id="dicas">
+            <div class="informacoes" id="sobre">
+                <span class="linha-vermelha"></span>
+                <h2>Segurança começa com informação.</h2>
+
+                <p>
+                    Nosso assistente educativo ajuda você a reconhecer
+                    riscos digitais e entender como se proteger.
+                    Quando não souber responder, deverá orientar
+                    você a procurar fontes oficiais.
+                </p>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="icone">🛡️</div>
+                        <h3>Golpes e fraudes</h3>
+                        <p>Aprenda a reconhecer mensagens e links suspeitos.</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icone">🔐</div>
+                        <h3>Privacidade</h3>
+                        <p>Proteja suas senhas e informações pessoais.</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icone">📶</div>
+                        <h3>Navegação segura</h3>
+                        <p>Conheça cuidados importantes ao usar a internet.</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icone">💬</div>
+                        <h3>Dúvidas digitais</h3>
+                        <p>Converse com o assistente sobre segurança digital.</p>
+                    </article>
+                </div>
+
+                <div class="aviso">
+                    <strong>Importante:</strong>
+                    protótipo acadêmico. Não informe senhas,
+                    CPF, códigos de verificação ou dados bancários.
+                    Este projeto não é um canal oficial da Claro
+                    nem substitui o atendimento de instituições.
+                </div>
+            </div>
+
+            <section class="chat" id="chat" aria-label="Chat educativo">
+                <div class="chat-topo">
+                    <div class="avatar">🛡️</div>
+
+                    <div>
+                        <h2>Assistente de Segurança</h2>
+                        <span class="online">● Interface demonstrativa</span>
+                    </div>
+                </div>
+
+                <div class="chat-mensagens" aria-live="polite">
+                    <div class="mensagem mensagem-bot">
+                        Olá! 👋 Seja bem-vindo!
+
+                        <br><br>
+
+                        Posso ajudar você a aprender sobre golpes,
+                        fraudes, privacidade, senhas e navegação segura.
+
+                        <br><br>
+
+                        <strong>Sobre o que você gostaria de saber?</strong>
+                    </div>
+                </div>
+
+                <form class="chat-form" id="chat-form">
+                    <label class="sr-only" for="pergunta">
+                        Digite sua dúvida
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pergunta"
+                        placeholder="Digite sua pergunta..."
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" aria-label="Enviar pergunta">
+                        ➤
+                    </button>
+                </form>
+
+                <p class="chat-nota">
+                    Não envie informações pessoais ou confidenciais.
+                </p>
+            </section>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="marca-rodape">
+            <span class="claro">Claro<span class="ponto">.</span></span>
+            <span class="soulcod">⬡ SoulCod</span>
+        </div>
+
+        <p>Conhecimento e tecnologia para comunidades mais seguras.</p>
+
+        <span>Projeto educacional demonstrativo · 2026</span>
+    </footer>
+
+</body>
+</html>
