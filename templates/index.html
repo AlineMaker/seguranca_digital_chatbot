@@ -113,13 +113,7 @@
                     </article>
                 </div>
 
-                <div class="aviso">
-                    <strong>Importante:</strong>
-                    protótipo acadêmico. Não informe senhas,
-                    CPF, códigos de verificação ou dados bancários.
-                    Este projeto não é um canal oficial da Claro
-                    nem substitui o atendimento de instituições.
-                </div>
+              
             </div>
 
             <section class="chat" id="chat" aria-label="Chat educativo">
@@ -183,5 +177,71 @@
         <span>Projeto educacional demonstrativo · 2026</span>
     </footer>
 
+<script>
+    const formulario = document.getElementById("chat-form");
+    const campoPergunta = document.getElementById("pergunta");
+    const areaMensagens = document.querySelector(".chat-mensagens");
+    const botaoEnviar = formulario.querySelector("button");
+
+    function adicionarMensagem(texto, tipo) {
+        const mensagem = document.createElement("div");
+
+        mensagem.classList.add("mensagem", tipo);
+        mensagem.textContent = texto;
+
+        areaMensagens.appendChild(mensagem);
+        areaMensagens.scrollTop = areaMensagens.scrollHeight;
+
+        return mensagem;
+    }
+
+    formulario.addEventListener("submit", async function(evento) {
+        evento.preventDefault();
+
+        const pergunta = campoPergunta.value.trim();
+
+        if (!pergunta) return;
+
+        adicionarMensagem(pergunta, "mensagem-usuario");
+
+        campoPergunta.value = "";
+        botaoEnviar.disabled = true;
+
+        const carregando = adicionarMensagem(
+            "Estou analisando sua pergunta...",
+            "mensagem-bot"
+        );
+
+        try {
+            const respostaServidor = await fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    mensagem: pergunta
+                })
+            });
+
+            const dados = await respostaServidor.json();
+
+            carregando.textContent = dados.resposta ||
+                "Não foi possível obter uma resposta.";
+
+            if (!respostaServidor.ok) {
+                carregando.textContent = dados.resposta ||
+                    "Ocorreu um erro ao processar sua pergunta.";
+            }
+
+        } catch (erro) {
+            carregando.textContent =
+                "Não consegui conectar ao servidor. Tente novamente.";
+
+        } finally {
+            botaoEnviar.disabled = false;
+            campoPergunta.focus();
+        }
+    });
+</script>
 </body>
 </html>

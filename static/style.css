@@ -338,8 +338,8 @@ a{
 }
 
 .chat {
-    min-width: 0;
-    min-height: 520px;
+  min-width: 0;
+    height: 520px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -377,10 +377,41 @@ a{
     font-size: 12px;
 }
 
+
 .chat-mensagens {
     flex: 1;
-    min-height: 290px;
+    min-height: 0;
     padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Barra invisível por padrão */
+.chat-mensagens {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.chat-mensagens::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-mensagens::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+/* Barra aparece ao passar o mouse */
+.chat-mensagens:hover {
+    scrollbar-color: #aab8c8 transparent;
+}
+
+.chat-mensagens:hover::-webkit-scrollbar-thumb,
+.chat-mensagens:active::-webkit-scrollbar-thumb {
+    background: #aab8c8;
 }
 
 .mensagem {
@@ -581,4 +612,30 @@ a{
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+
+.mensagem-usuario {
+    max-width: 85%;
+    margin: 14px 0 14px auto;
+    background: var(--vermelho);
+    color: var(--branco);
+    border-radius: 16px 5px 16px 16px;
+    overflow-wrap: anywhere;
+}
+
+.mensagem-bot {
+    margin-top: 12px;
+    overflow-wrap: anywhere;
+}
+
+.chat-mensagens {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.chat-form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
 }
